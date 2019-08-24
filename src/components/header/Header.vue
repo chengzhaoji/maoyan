@@ -1,6 +1,6 @@
 <template>
 <div>
-  <header class="header">
+  <header class="headers">
     <h1>{{title}}</h1>
   </header>
   </div>
@@ -17,20 +17,21 @@ export default {
 </script>
 
 <style scoped>
-.header{
+.headers{
   width:100%;
   height:50px;
-  background:#ddd;
+  background:#e54847;
   border-bottom:1px solid #f00;
   position:fixed;
   top:0px;
   left:0px;
 }
-.header h1{
+.headers h1{
   font-size:18px;
   text-align: center;
   line-height:50px;
-  margin-top:0px
+  margin-top:0px;
+  color:#fff;
   }
 
 </style>

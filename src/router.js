@@ -8,12 +8,14 @@ import Movie from "./views/Movie/Movie.vue"
 import Theater from "./views/Theater/Theater.vue"
 import Cinema from "./views/Cinema/Cinema.vue"
 import Mine from "./views/Mine/Mine.vue"
+import Search from "./views/Search"
 import Home2 from "./views/Home2.vue"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    { path: '/Search', component: Search },
     { path: '/Home2', component: Home2 },
     { path: '/Home1', component: Home1 },
     { path: '/Movie', component: Movie },
