@@ -1,11 +1,10 @@
 <template>
   <div id="Cinema">
     <Header title="影院模板" />
-    <!-- <div style="margin-top:48px;">
-    </div>-->
+    <div style="margin-top:48px;"></div>
     <div class="gray-bg topbar-bg">
       <div class="city-entry">
-        <span class="city-name">广州</span>
+        <span class="city-name" @click="gzlist">广州</span>
         <i class="city-entry-arrow"></i>
       </div>
       <div class="search-entry search-input" data-type="cinema" @click="add">
@@ -15,41 +14,45 @@
     </div>
     <div class="tow-list">
       <div class="tab mb-line-b">
-        <div class="item" data-tab="region">
+        <div
+          class="item"
+          @click="addClass"
+          v-bind:class="current==true?'region':''"
+        >
           全城
           <span class="drop"></span>
         </div>
-        <div class="item" data-tab="brand">
+        <div class="item">
           品牌
           <span class="drop"></span>
         </div>
-        <div class="item" data-tab="special">
+        <div class="item">
           特色
           <span class="drop"></span>
         </div>
       </div>
     </div>
-    <div class="list-wrap list_item mb-line-b">
+    <div class="list-wrap list_item mb-line-b" v-for="(time,i) in items" :key="i">
       <div class="title-block">
         <div class="title line-ellipsis">
-          <span>星汇电影城</span>
+          <span>{{time.title}}</span>
 
           <span class="price-block">
-            <span class="price">32.5</span>
+            <span class="price">{{time.price}}</span>
             <span class="q">元起</span>
           </span>
         </div>
         <div class="location-block box-flex">
-          <div class="flex line-ellipsis">越秀区西湖路63号光明广场7层（北京路广百南门对面）</div>
+          <div class="flex line-ellipsis">{{time.product}}</div>
 
-          <div class="distance">700m</div>
+          <div class="distance">{{time.dist}}</div>
         </div>
         <div class="flex"></div>
 
         <div class="label-block">
-          <div class="snack">小吃</div>
-          <div class="vipTag">折扣卡</div>
-          <div class="hallType">杜比全景声厅</div>
+          <div class="snack">{{time.snak}}</div>
+          <div class="vipTag">{{time.card}}</div>
+          <div class="hallType">{{time.sound}}</div>
         </div>
 
         <div class="discount-block">
@@ -57,7 +60,7 @@
             <div class="discount-label normal card">
               <img src="@/assets/car.png" alt />
             </div>
-            <div class="discount-label-text">开卡特惠，首单2张最高立减6元</div>
+            <div class="discount-label-text">{{time.car}}</div>
           </div>
         </div>
       </div>
@@ -72,7 +75,31 @@ import Footer from "@/components/footer/Footer.vue";
 export default {
   data() {
     return {
-      // active: "special",
+      i:0,
+      current: 0,
+      liList: [{ title: "全城" }, { title: "品牌" }, { title: "特色" }],
+      items: [
+        {
+          title: "星汇电影城",
+          price: "32.5",
+          product: "越秀区西湖路63号光明广场7层（北京路广百南门对面）",
+          dist: "700m",
+          snak: "小吃",
+          card: "折扣卡",
+          sound: "杜比全景声厅",
+          car: "开卡特惠，首单2张最高立减6元"
+        },
+        {
+          title: "中影凡力影城",
+          price: "33",
+          product: "越秀区中山五路219号中旅商业城9楼（地铁公园前站Ａ出口）",
+          dist: "800m",
+          snak: "小吃",
+          card: "折扣卡",
+          sound: "改签,退款",
+          car: "开卡特惠，首单2张最高立减6元"
+        },
+      ]
     };
   },
   //  name: 'cinema',
@@ -84,8 +111,11 @@ export default {
     add() {
       this.$router.push("/Search");
     },
-    acc() {
-      this.add("active");
+    addClass() {
+      this.current = true;
+    },
+    gzlist(){
+      this.$router.push("/gz")
     }
   }
 };
@@ -94,12 +124,12 @@ export default {
 <style>
 .gray-bg {
   background: #f5f5f5;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 .topbar-bg {
   display: flex;
   align-items: center;
-  height: 44px;
+  height: 50px;
   justify-content: space-between;
 }
 .city-entry {
@@ -158,6 +188,15 @@ export default {
   font-size: 13px;
   text-overflow: ellipsis;
 }
+.item:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 20px;
+  top: 10px;
+  left: 0;
+  border-left: 1px solid #e8e8e8;
+}
 .drop {
   width: 0;
   height: 0;
@@ -170,6 +209,7 @@ export default {
 .mb-line-b {
   background: url(../../assets/bottom.png) 0 bottom repeat-x;
 }
+/* 电影院的详情列表部分 */
 .list-wrap.list_item {
   padding: 13px 15px 13px 0;
   margin-left: 15px;
@@ -267,7 +307,15 @@ img {
   font-size: 11px;
   display: inline-block;
 }
-.active {
+.region {
+  cursor: pointer;
   color: #f03d37;
+}
+.drop:hover {
+  transform-origin: center center; /*旋转中心要是正中间 才行 */
+  transform: rotate(180deg);
+  transition: transform 0.2s;
+  position: relative;
+  top: -2px;
 }
 </style>

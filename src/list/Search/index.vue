@@ -1,6 +1,6 @@
 <template>
-<div>
-<Header/>
+  <div>
+    <Header />
     <!-- <div class="search-header">
       <div class="input-wrapper">
         <img class="search-icon" src="//s0.meituan.net/bs/?f=myfe/canary:/static/deploy/images/search.png" alt="">
@@ -8,33 +8,40 @@
         <img class="del-input" style="display: none;" src="//s0.meituan.net/bs/?f=myfe/canary:/static/deploy/images/close.png" alt="">
       </div>
       <div class="cancel">取消</div>
-    </div> -->
+    </div>-->
     <div style="margin-top:50px;">
-        <mt-search
-  :value.sync="value"
-  cancel-text="取消"
-  placeholder="搜索">
-</mt-search>
+      <van-search
+        v-model="value"
+        placeholder="请输入搜索关键词"
+        show-action
+        shape="round"
+        @search="onSearch"
+      >
+        <div slot="action" @click="onSearch">搜索</div>
+      </van-search>
     </div>
-    
-</div>
+  </div>
 </template>
 <script>
-import Header from '@/components/header/Header.vue'
+import Header from "@/components/header/Header.vue";
 export default {
-    data(){
-        return{
-            value:"",
-        }
-    },
-     components:{
-    Header,
+  data() {
+    return {
+      value: ""
+    };
+  },
+  components: {
+    Header
+  },
+  methods: {
+    onSearch() {
+      console.log(this.value);
+    }
   }
-
-}
+};
 </script>
 <style scoped>
-    /* .search-header {
+/* .search-header {
     display: flex;
     -webkit-box-align: center;
     align-items: center;

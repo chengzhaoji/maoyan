@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 import Footer from "./components/footer/Footer.vue"
 import Header from "./components/header/Header.vue"
 import Home1 from "./views/Home/Home1.vue"
@@ -8,13 +7,19 @@ import Movie from "./views/Movie/Movie.vue"
 import Theater from "./views/Theater/Theater.vue"
 import Cinema from "./views/Cinema/Cinema.vue"
 import Mine from "./views/Mine/Mine.vue"
-import Search from "./views/Search"
+import Search from "./list/Search"
 import Home2 from "./views/Home2.vue"
+import gz from "./list/gz"
+import hit from "./list/hit"
+import son from "./list/son"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    { path: '/son', component: son },
+    { path: '/hit', component: hit },
+    { path: '/gz', component: gz },
     { path: '/Search', component: Search },
     { path: '/Home2', component: Home2 },
     { path: '/Home1', component: Home1 },
@@ -26,8 +31,8 @@ export default new Router({
     { path: '/Footer', component: Footer },
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'Home1',
+      component: Home1
     },
     {
       path: '/about',

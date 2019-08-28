@@ -32,7 +32,7 @@ export default {
 <style scoped>
   .Home_swipe{
     position: relative;
-    margin-top: 50px;
+    margin-top:50px;
     width: 100%;
     height: 140px;
   }
