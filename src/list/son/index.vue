@@ -5,10 +5,10 @@
       <div class="most-expected">
         <p class="title">近期最受期待</p>
         <div class="most-expected-list  container">
-          <div class="expected-item" v-for="list in 10" :key="list">
+          <div class="expected-item" v-for="(item,index) in lists" :key="item">
             <div class="poster img-bg">
               <img
-                src="@/assets/4c01895cfd53e82f7c3048c407974a6b4739229.jpg"
+                :src="'https://images.weserv.nl/?url='+listImg[index]"
                 onerror="this.style.visibility='hidden'"
               />
               <span class="wish-bg"></span>
@@ -19,7 +19,7 @@
                 <span class="like"></span>
               </div>
             </div>
-            <h5 class="name line-ellipsis">攀登者</h5>
+            <h5 class="name line-ellipsis">{{item.title}}</h5>
             <p class="date">9月30日</p>
           </div>
         </div>
@@ -28,12 +28,12 @@
     <div class="tow-list">
       <div>
         <p class="list-date">8月30日 周五</p>
-        <div class="tow-list-item" v-for="dis in 5" :key="dis">
+        <div class="tow-list-item" v-for="(item,index) in lists" :key="item.id">
           <div class="tow-block">
             <div class="expected-item">
               <div class="avatar img-bg">
                 <img
-                  src="@/assets/c2ea0e5c6b9afb43add575c4d51d2f192279458.jpg"
+                  :src="'https://images.weserv.nl/?url='+listImg[index]"
                   onerror="this.style.visibility='hidden'"
                 />
               </div>
@@ -41,30 +41,54 @@
             <div class="mb-line-b">
               <div class="movie-content">
                 <div class="flex movie-title">
-                  <div class="line-ellipsis">深夜食堂</div>
+                  <div class="line-ellipsis title">{{item.title}}</div>
                 </div>
                 <div class="detail">
                   <div class="wantsee line-ellipsis">
                     <span class="person">43613</span>
                     <span class="p-suffix">人想看</span>
                   </div>
-                  <div class="actor line-ellipsis">主演: 梁家辉,刘涛,魏晨</div>
-                  <div class="actor line-ellipsis">2019-08-30上映</div>
+                  <div class="actor line-ellipsis">主演: {{item.casts[0].name}}</div>
+                  <div class="actor line-ellipsis">{{item.mainland_pubdate}}上映</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div style="height:41px"></div>
     </div>
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {};
+    return {
+      lists:"",
+      listImg:[],
+    };
+  },
+  methods:{
+      add() {
+      var url =
+        "http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=10&count=20";
+      this.$jsonp(url).then(res => {
+        // console.log(res)
+        for (var i = 0; i < res.subjects.length; i++) {
+          let imgUrl = res.subjects[i].images.small;
+          let imgUrls = imgUrl.slice(7);
+          this.listImg.push(imgUrls);
+          // console.log(imgUrls);
+        }
+        // console.log('我是:',this.listImg);
+        this.lists = res.subjects;
+      })
   }
-};
+},
+created(){
+  this.add();
+}
+}
 </script>
 <style scoped>
 /* 图片的公共样式 */
@@ -93,9 +117,9 @@ img {
 /* 列表标题 */
 .title {
   margin: 0;
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 12px;
+  color: #333;
+  font-size: 17px;
+  /* margin-bottom: 12px; */
 }
 /* 去滚动条 */
 .container::-webkit-scrollbar {display:none}
@@ -104,9 +128,11 @@ img {
   overflow: scroll; /*卷轴方式的移动*/
   white-space: nowrap; /*空间不换行,在同一行*/
 }
+/* 宽度的范围 */
 .list-wrap .expected-item {
   display: inline-block;
   overflow: hidden;
+      width: 85px;
   margin-right: 10px; /*每个列表框之间的距离*/
 }
 /* 图片的大小 */
@@ -219,6 +245,8 @@ img {
   margin-bottom: 7px;
   line-height: 24px;
   overflow: hidden;
+  font-weight:700;
+  color: #333
 }
 /* 图片的大小 */
 .avatar {

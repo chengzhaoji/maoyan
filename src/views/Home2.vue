@@ -10,12 +10,12 @@
     </div>-->
     <!--Home2.vue 入口全局组件-->
     <!--3:切换面板列表-->
-    <mt-tab-container class v-model="active">
+    <mt-tab-container v-model="active">
       <mt-tab-container-item id="home1">
         <home1></home1>
       </mt-tab-container-item>
       <mt-tab-container-item id="movie">
-        <movie />
+        <movie  style="position:none"/>
       </mt-tab-container-item>
       <mt-tab-container-item id="theater">
         <theater></theater>
@@ -93,6 +93,10 @@ export default {
 };
 </script>
 <style  scoped>
+.mint-tab-container {
+    overflow: hidden;
+    position: inherit;
+}
 .page-tabbar {
   overflow: hidden; /*溢出隐藏*/
 }

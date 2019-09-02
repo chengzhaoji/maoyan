@@ -2,7 +2,8 @@
   <div>
     <Header title="电影模板" />
     <div style="margin-top:48px;height:748px;">
-      <div class="gray-bg topbar-bg mb-line-b">
+      <div style="height:51px">
+      <div class="gray-bg topbar-bg movies">
         <div class="city-entry">
           <span class="city-name" @click="gzlist">广州</span>
           <i class="city-entry-arrow"></i>
@@ -13,6 +14,7 @@
           <!-- <son/> -->
         </div>
         <div class="search-entry search-icon"></div>
+      </div>
       </div>
     <hit v-if="on"/>
     <son v-else />
@@ -60,9 +62,16 @@ export default {
 
 <style scoped>
 /* 总的样表项样式 */
+.gray-bg.movies{
+      position: fixed;
+    width: 100%;
+    z-index: 10;
+    background: #fff;
+}
 .gray-bg {
   background: #f5f5f5;
   /* margin-top: 50px; */
+  border-bottom: 1px solid #ddd
 }
 .topbar-bg {
   display: flex;

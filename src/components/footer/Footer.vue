@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="for">
      <mt-tab-container v-model="active">
        <!--子面板1 -->
        <!-- <mt-tab-container-item id="Home1">
@@ -67,3 +67,9 @@
     }
   }
 </script>
+<style scoped>
+.for{
+      position:fixed;
+}
+
+</style>

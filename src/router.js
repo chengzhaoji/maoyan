@@ -12,11 +12,13 @@ import Home2 from "./views/Home2.vue"
 import gz from "./list/gz"
 import hit from "./list/hit"
 import son from "./list/son"
+import hitproduct from "./list/hitproduct"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    { path: '/hitproduct', component: hitproduct },
     { path: '/son', component: son },
     { path: '/hit', component: hit },
     { path: '/gz', component: gz },
@@ -31,8 +33,8 @@ export default new Router({
     { path: '/Footer', component: Footer },
     {
       path: '/',
-      name: 'Home1',
-      component: Home1
+      name: 'Home2',
+      component: Home2
     },
     {
       path: '/about',
