@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="我的模板" />
+    <Headerss title="我的模板" />
     <div style="margin-top:48px;"></div>
     <!-- <h1>电影</h1> -->
     <mt-navbar v-model="selected">
@@ -88,13 +88,13 @@
           </div>
       </mt-tab-container-item>
     </mt-tab-container>
-    <Footer />
+    <Footerss />
   </div>
 </template>
 
 <script>
-import Header from "@/components/header/Header.vue";
-import Footer from "@/components/footer/Footer.vue";
+import Headerss from "@/components/headerss/Headerss.vue";
+import Footerss from "@/components/footerss/Footerss.vue";
 export default {
   data() {
     return {
@@ -106,8 +106,8 @@ export default {
     };
   },
   components: {
-    Header,
-    Footer
+    Headerss,
+    Footerss
   },
   methods: {
     login() {

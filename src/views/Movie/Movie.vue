@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="电影模板" />
+    <Headerss title="电影模板" />
     <div style="margin-top:48px;height:748px;">
       <div style="height:51px">
       <div class="gray-bg topbar-bg movies">
@@ -19,13 +19,13 @@
     <hit v-if="on"/>
     <son v-else />
      </div>
-    <Footer />
+    <Footerss />
   </div>
 </template>
 
 <script>
-import Header from "@/components/header/Header.vue";
-import Footer from "@/components/footer/Footer.vue";
+import Headerss from "@/components/headerss/Headerss.vue";
+import Footerss from "@/components/footerss/Footerss.vue";
 import hit from "@/list/hit";
 import son from "@/list/son";
 export default {
@@ -36,8 +36,8 @@ export default {
     };
   },
   components: {
-    Header,
-    Footer,
+    Headerss,
+    Footerss,
     hit,
     son
   },

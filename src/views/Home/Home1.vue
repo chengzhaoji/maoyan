@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="首页模板" style="height:50px" />
+    <Headerss title="首页模板" style="height:50px" />
     <!-- <div style="margin-top:48px;"></div> -->
     <div>
       <van-tabs>
@@ -67,21 +67,21 @@
     </div>
 
     <div></div>
-    <Footer />
+    <Footerss />
   </div>
 </template>
 
 <script>
-import Header from "@/components/header/Header.vue";
-import Footer from "@/components/footer/Footer.vue";
+import Headerss from "@/components/headerss/Headerss.vue";
+import Footerss from "@/components/footerss/Footerss.vue";
 export default {
   data() {
     return {};
   },
   name: "home1",
   components: {
-    Header,
-    Footer
+    Headerss,
+    Footerss
   }
 };
 </script>

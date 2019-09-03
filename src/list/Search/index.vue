@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <headerss />
     <!-- <div class="search-header">
       <div class="input-wrapper">
         <img class="search-icon" src="//s0.meituan.net/bs/?f=myfe/canary:/static/deploy/images/search.png" alt="">
@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import Header from "@/components/header/Header.vue";
+import headerss from "@/components/headerss/Headerss.vue";
 export default {
   data() {
     return {
@@ -31,7 +31,7 @@ export default {
     };
   },
   components: {
-    Header
+    headerss
   },
   methods: {
     onSearch() {

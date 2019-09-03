@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="演出模板" />
+    <Headerss title="演出模板" />
     <div class="container">
       <div class="thear-content">
         <ul>
@@ -97,13 +97,13 @@
       </div>
       <div style="margin-top:41px"></div>
     </div>
-    <Footer />
+    <Footerss />
   </div>
 </template>
 
 <script>
-import Header from "@/components/header/Header.vue";
-import Footer from "@/components/footer/Footer.vue";
+import Headerss from "@/components/headerss/Headerss.vue";
+import Footerss from "@/components/footerss/Footerss.vue";
 export default {
   data() {
     return {
@@ -136,8 +136,8 @@ export default {
     };
   },
   components: {
-    Header,
-    Footer
+    Headerss,
+    Footerss
   }
 };
 </script>

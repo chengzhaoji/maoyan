@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Footer from "./components/footer/Footer.vue"
-import Header from "./components/header/Header.vue"
+import Footerss from "./components/footerss/Footerss.vue"
+import Headerss from "./components/headerss/Headerss.vue"
 import Home1 from "./views/Home/Home1.vue"
 import Movie from "./views/Movie/Movie.vue"
 import Theater from "./views/Theater/Theater.vue"
@@ -13,11 +13,13 @@ import gz from "./list/gz"
 import hit from "./list/hit"
 import son from "./list/son"
 import hitproduct from "./list/hitproduct"
+import details from "./list/details"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    { path: '/details', component: details },
     { path: '/hitproduct', component: hitproduct },
     { path: '/son', component: son },
     { path: '/hit', component: hit },
@@ -29,8 +31,8 @@ export default new Router({
     { path: '/Theater', component: Theater },
     { path: '/Cinema', component: Cinema },
     { path: '/Mine', component: Mine },
-    { path: '/Header', component: Header },
-    { path: '/Footer', component: Footer },
+    { path: '/Headerss', component: Headerss },
+    { path: '/Footerss', component: Footerss },
     {
       path: '/',
       name: 'Home2',

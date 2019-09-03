@@ -2,9 +2,9 @@
   <div class="page-tabbar">
     <!--Home.vue-->
     <!--1:顶部标题子组件-->
-    <header class="header">
+    <Header class="header">
       <h1>{{title}}</h1>
-    </header>
+    </Header>
     <!--2:div保留(标题)48px高度-->
     <!-- <div style="margin-top:50px;">
     </div>-->
@@ -31,27 +31,27 @@
     <!--为每个按钮绑定点击事件-->
     <mt-tabbar v-model="active" fixed>
       <mt-tab-item id="home1">
-        <footer></footer>
+        <footer/>
         <img slot="icon" src="@/assets/04.png" />
         首页
       </mt-tab-item>
       <mt-tab-item id="movie">
-        <footer></footer>
+        <footer/>
         <img slot="icon" src="@/assets/05.png" />
         电影
       </mt-tab-item>
       <mt-tab-item id="theater">
-        <footer></footer>
+        <footer/>
         <img slot="icon" src="@/assets/06.png" />
         演出
       </mt-tab-item>
       <mt-tab-item id="cinema">
-        <footer></footer>
+        <footer/>
         <img slot="icon" src="@/assets/08.png" />
         影视
       </mt-tab-item>
       <mt-tab-item id="mine">
-        <footer></footer>
+        <footer/>
         <img slot="icon" src="@/assets/09.png" />
         我的
       </mt-tab-item>
@@ -59,8 +59,8 @@
   </div>
 </template>
 <script>
-import Header from "@/components/header/Header.vue";
-import Footer from "@/components/footer/Footer.vue";
+import Headerss from "@/components/headerss/Headerss.vue";
+import Footerss from "@/components/footerss/Footerss.vue";
 import Home1 from "@/views/Home/Home1.vue";
 import Movie from "@/views/Movie/Movie.vue";
 import Theater from "@/views/Theater/Theater.vue";
@@ -109,13 +109,13 @@ export default {
 // },
   },
   components: {
-    header: Header,
+    headerss: Headerss,
     home1: Home1,
     movie: Movie,
     theater: Theater,
     cinema: Cinema,
     mine: Mine,
-    footer: Footer
+    footerss: Footerss
   }
 };
 </script>

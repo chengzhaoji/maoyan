@@ -1,5 +1,6 @@
 <template>
   <div class="for">
+    <footer>
      <mt-tab-container v-model="active">
        <!--子面板1 -->
        <!-- <mt-tab-container-item id="Home1">
@@ -7,17 +8,17 @@
        </mt-tab-container-item> -->
        <!--子面板2-->
        <mt-tab-container-item id="Movie">
-           电影
+
        </mt-tab-container-item>
        <!--子面板3-->
        <mt-tab-container-item id="Theater">
-           演出
+
        </mt-tab-container-item>
         <mt-tab-container-item>
-           影院
+   
        </mt-tab-container-item>
         <mt-tab-container-item id="Mine">
-           我的
+
        </mt-tab-container-item>
      </mt-tab-container>
 
@@ -55,6 +56,7 @@
          我的
        </mt-tab-item>
      </mt-tabbar>
+     </footer>
   </div>
 </template>
 <script>
