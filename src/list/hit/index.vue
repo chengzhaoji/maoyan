@@ -1,7 +1,17 @@
 <template>
   <div class="page">
-    <div class="list-wrap" style="margin-top: 0px;" v-for="(item,index) in list" :key="item.id">
-      <div class="item" data-id="1215605" data-bid="dp_wx_home_movie_list">
+    <van-list
+  v-model="loading"
+  :finished="finished"
+  finished-text="没有更多了"
+  @load="onLoad"
+>
+  <van-cell
+     v-for="(item,index) in list" :key="index"
+  >
+
+    <div class="list-wrap" style="margin-top: 0px;">
+      <div class="item">
         <div class="main-block">
           <div class="avatar" sort-flag>
             <div class="default-img-bg">
@@ -25,20 +35,25 @@
                   <span class="grade">{{item.rating.average}}</span>
                 </div>
 
-                <div class="actor line-ellipsis">主演: {{item.casts[0].name}}</div>
+                <div class="actor line-ellipsis">主演: {{item.casts[0].name}},{{item.casts[1].name}}</div>
 
                 <div class="show-info line-ellipsis">今天220家影院放映4679场</div>
               </div>
             </div>
             <div class="button-block">
-              <div class="btn normal">
+              <div class="btn normal" :class="rating[index]==0?'hidden':'show'">
                 <span class="fix" @click="jumpComment">购票</span>
+              </div>
+              <div class="btn normal pre" :class="rating[index]==0?'show':'hidden'">
+                <span class="fix" @click="jumpComment">预售</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    </van-cell>
+    </van-list>
     <div>
       <div style="height:40px"></div>
     </div>
@@ -48,22 +63,29 @@
 export default {
   data() {
     return {
+      rating:[],
+      count:4,
       list: "",
       listImg: [],
-      value:6
+      value:6,
+        loading: false,
+      finished: false
     };
   },
   methods: {
     aa() {
       var url =
-        "http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=0&count=20";
+        "http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=${this.res.subjects}&count=${this.count}";
       this.$jsonp(url).then(res => {
         // console.log(res.subjects);
         for (var i = 0; i < res.subjects.length; i++) {
           let imgUrl = res.subjects[i].images.small;
           let imgUrls = imgUrl.slice(7);
           this.listImg.push(imgUrls);
+          let ratings=res.subjects[i].rating.average;
+          this.rating.push(ratings);
           // console.log(imgUrls);
+          // console.log(ratings);
         }
         // console.log('我是:',this.listImg);
         this.list = res.subjects;
@@ -71,6 +93,21 @@ export default {
     },
     jumpComment(){
      this.$router.push("/hitproduct")
+  },
+   onLoad() {
+      // 异步更新数据
+      setTimeout(() => {
+        for (let i = 0; i < 12; i++) {
+          this.list.push(this.list.length + 1);
+        }
+        // 加载状态结束
+        this.loading = false;
+
+        // 数据全部加载完成
+        if (this.list.length >=20) {
+          this.finished = true;
+        }
+      }, 500);
   }
   },
   props: [],
@@ -243,11 +280,26 @@ img {
   font-size: 12px;
   cursor: pointer;
 }
+/* 预售 */
+.btn.pre {
+    background-color: #3c9fe6 !important;
+}
+.hidden{display: none}
+.show{display: block}
 /* 底部的虚线分割  */
 .mb-outline-b {
   background: url(../../assets/bottom.png) 0 bottom repeat-x;
 }
 .van-rate__item {
     float: left;
+}
+.item:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 20px;
+    top: 10px;
+    left: 0;
+    border-left: 1px solid #fff;
 }
 </style>

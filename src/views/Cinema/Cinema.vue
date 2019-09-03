@@ -50,13 +50,12 @@
         <div class="flex"></div>
 
         <div class="label-block">
-          <div class="snack">{{time.snak}}</div>
-          <div class="vipTag">{{time.card}}</div>
-          <div class="hallType">{{time.sound}}</div>
+          <div class="snack" :class="items[i].snack==''?'hidden':'show'">{{time.snack}}</div>
+          <div class="vipTag" :class="items[i].vipTag==''?'hidden':'show'">{{time.card}}</div>
+          <div class="hallType" :class="items[i].hallType==''?'hidden':'show'">{{time.sound}}</div>
         </div>
-
         <div class="discount-block">
-          <div>
+          <div :class="items[i].car==''?'hidden':'show'">
             <div class="discount-label normal card">
               <img src="@/assets/car.png" alt />
             </div>
@@ -65,6 +64,7 @@
         </div>
       </div>
     </div>
+    <div style="height:41px;margin-top: 14px"></div>
     <Footer />
   </div>
 </template>
@@ -75,7 +75,6 @@ import Footer from "@/components/footer/Footer.vue";
 export default {
   data() {
     return {
-      i:0,
       current: 0,
       liList: [{ title: "全城" }, { title: "品牌" }, { title: "特色" }],
       items: [
@@ -84,7 +83,7 @@ export default {
           price: "32.5",
           product: "越秀区西湖路63号光明广场7层（北京路广百南门对面）",
           dist: "700m",
-          snak: "小吃",
+          snack: "小吃",
           card: "折扣卡",
           sound: "杜比全景声厅",
           car: "开卡特惠，首单2张最高立减6元"
@@ -94,11 +93,51 @@ export default {
           price: "33",
           product: "越秀区中山五路219号中旅商业城9楼（地铁公园前站Ａ出口）",
           dist: "800m",
-          snak: "小吃",
+          snack: "小吃",
           card: "折扣卡",
           sound: "改签,退款",
+          car: "",
+        },
+         {
+          title: "广东工人电影院",
+          price: 23,
+          product: "越秀区南堤二马路36号",
+          dist: "800m",
+          snack: "退,改签",
+          card: "小吃",
+          sound: "折扣卡",
           car: "开卡特惠，首单2张最高立减6元"
         },
+        {
+          title: "CGV影城（北京路店）",
+          price: 20,
+          product: "越秀区北京路168号粤海仰忠汇8层",
+          dist: "800m",
+          snack:'',
+          card: "小吃",
+          sound: "折扣卡",
+          car: "开卡特惠，首单2张最高立减4元"
+        },
+        {
+          title: "永汉电影院",
+          price: 28,
+          product: "越秀区北京路186号3楼（潮楼对面）",
+          dist: "800m",
+          snack:'',
+          card: "小吃",
+          sound: "折扣卡",
+          car: ""
+        },
+        {
+          title: "永汉电影院",
+          price: 28,
+          product: "越秀区北京路186号3楼（潮楼对面）",
+          dist: "800m",
+          snack:'',
+          card: "小吃",
+          sound: "折扣卡",
+          car: ""
+        }
       ]
     };
   },
@@ -317,5 +356,13 @@ img {
   transition: transform 0.2s;
   position: relative;
   top: -2px;
+}
+.hidden{
+  display:none !important;
+  color:transparent !important;
+    border:0 !important;
+}
+.show{
+  display:block;
 }
 </style>

@@ -60,7 +60,7 @@
         <span >特惠购票</span>
       </a>
       <div class="desc">
-      <div v-if="this.id=lid">{{details[4]}}</div>
+      <div v-if="this.id=lid">{{details[3]}}</div>
       <div class="text-expander-button">
         <i class="icon icon-chevron-down"></i>
       </div>
@@ -90,7 +90,7 @@ export default {
         "http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=0&count=10";
       this.$jsonp(url1)
         .then(res => {
-          console.log(res.subjects);
+          // console.log(res.subjects);
           for (var i = 0; i < res.subjects.length; i++) {
             let idUrl = res.subjects[i].id;
             this.id.push(idUrl);

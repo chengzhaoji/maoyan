@@ -28,7 +28,7 @@
     <div class="tow-list">
       <div>
         <p class="list-date">8月30日 周五</p>
-        <div class="tow-list-item" v-for="(item,index) in lists" :key="item.id">
+        <div class="tow-list-item" v-for="(item,index) in lists" :key="index">
           <div class="tow-block">
             <div class="expected-item">
               <div class="avatar img-bg">
@@ -40,17 +40,23 @@
             </div>
             <div class="mb-line-b">
               <div class="movie-content">
-                <div class="flex movie-title">
+                
+                <div class="detail">
+                  <div class="flex movie-title">
                   <div class="line-ellipsis title">{{item.title}}</div>
                 </div>
-                <div class="detail">
                   <div class="wantsee line-ellipsis">
                     <span class="person">43613</span>
                     <span class="p-suffix">人想看</span>
                   </div>
-                  <div class="actor line-ellipsis">主演: {{item.casts[0].name}}</div>
+                  <div class="actor line-ellipsis">主演: {{item.casts[0].name}},{{item.casts[1].name}}</div>
                   <div class="actor line-ellipsis">{{item.mainland_pubdate}}上映</div>
                 </div>
+                 <div class="button-block">
+              <div class="btn pre">
+                <span class="fix">预售</span>
+              </div>
+            </div>
               </div>
             </div>
           </div>
@@ -64,6 +70,8 @@
 export default {
   data() {
     return {
+      // start:20,
+      count:6,
       lists:"",
       listImg:[],
     };
@@ -71,7 +79,7 @@ export default {
   methods:{
       add() {
       var url =
-        "http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=10&count=20";
+        "http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=${this.subjects.length,}&count=${this.count}";
       this.$jsonp(url).then(res => {
         // console.log(res)
         for (var i = 0; i < res.subjects.length; i++) {
@@ -110,7 +118,7 @@ img {
 }
 /* 列表的的边距与样式结构 */
 .list-wrap .most-expected {
-  padding: 12px 0 12px 15px;
+  padding: 12px 15px 12px 15px;
   background: #fff;
   margin-bottom: 10px;
 }
@@ -287,7 +295,7 @@ img {
   line-height: 15px;
 }
 /* 右边按钮的位置调整 */
-.item .button-block {
+ .button-block {
   font-size: 12px;
   position: absolute;
   right: 14px;
@@ -310,4 +318,23 @@ img {
   font-size: 12px;
   cursor: pointer;
 }
+/* .list-wrap .item .button-block .btn {
+  width: 47px;
+  height: 27px;
+  line-height: 28px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #f03d37;
+  color: #fff;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  cursor: pointer;
+} */
+/* 预售 */
+.btn.pre {
+    background-color: #3c9fe6 !important;
+}
+/* .hidden{display: none}
+.show{display: block} */
 </style>

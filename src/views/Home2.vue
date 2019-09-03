@@ -80,7 +80,34 @@ export default {
       default: "猫眼影院"
     }
   },
-  methods: {},
+//   mounted: function() {
+// //当前页面挂载的时候调用 返回键的监听方法
+// this.listeningBack()
+// },
+//  //当页面销毁的时候我们也要将事件监听销毁，以免影响其他内容
+//  destroyed:function(){
+//   window.onpopstate = null
+// },
+  methods: {
+//     listeningBack() {
+// var that = this;//window.onpopstate方法指向window,所以要储存一下当前的vue实例
+// let route = '上一页';//根据业务逻辑的上一页决定
+// window.onpopstate = function() {
+// //将当前页面window.location.href 放入页面栈当中
+// history.pushState({}, null, window.location.href);
+// Dialog.alert({
+// title: '标题',
+// message: '确认返回吗，你所填写的内容将保存为草稿'
+// }).then(() => {
+// that.$router.push({
+// path:route
+// })
+// }).catch(
+// console.log('取消返回，留在当前页面')
+// );
+// }
+// },
+  },
   components: {
     header: Header,
     home1: Home1,
