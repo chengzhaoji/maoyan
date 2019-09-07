@@ -1,13 +1,14 @@
 <template>
   <div class="page">
-    <van-list
+    <!-- <van-list
   v-model="loading"
   :finished="finished"
   finished-text="没有更多了"
   @load="onLoad"
->
+> -->
   <van-cell
      v-for="(item,index) in list" :key="index"
+      @click="hitdetail(item.id)"
   >
 
     <div class="list-wrap" style="margin-top: 0px;">
@@ -17,7 +18,6 @@
             <div class="default-img-bg">
               <img
                 :src="'https://images.weserv.nl/?url='+listImg[index]"
-                onerror="this.style.visibility='hidden'"
               />
             </div>
           </div>
@@ -42,10 +42,10 @@
             </div>
             <div class="button-block">
               <div class="btn normal" :class="rating[index]==0?'hidden':'show'">
-                <span class="fix" @click="jumpComment">购票</span>
+                <span class="fix">购票</span>
               </div>
               <div class="btn normal pre" :class="rating[index]==0?'show':'hidden'">
-                <span class="fix" @click="jumpComment">预售</span>
+                <span class="fix" data-id="item.id">预售</span>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
       </div>
     </div>
     </van-cell>
-    </van-list>
+    <!-- </van-list> -->
     <div>
       <div style="height:40px"></div>
     </div>
@@ -64,20 +64,20 @@ export default {
   data() {
     return {
       rating:[],
-      count:4,
+      count:30,
       list: "",
       listImg: [],
       value:6,
-        loading: false,
-      finished: false
+      //   loading: false,
+      // finished: false
     };
   },
   methods: {
     aa() {
       var url =
-        "http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=${this.res.subjects}&count=${this.count}";
+        `http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=${this.list.length}&count=${this.count}`;
       this.$jsonp(url).then(res => {
-        // console.log(res.subjects);
+        console.log(res.subjects);
         for (var i = 0; i < res.subjects.length; i++) {
           let imgUrl = res.subjects[i].images.small;
           let imgUrls = imgUrl.slice(7);
@@ -91,34 +91,17 @@ export default {
         this.list = res.subjects;
       });
     },
-    jumpComment(){
-     this.$router.push("/hitproduct")
-  },
-   onLoad() {
-      // 异步更新数据
-      setTimeout(() => {
-        for (let i = 0; i < 12; i++) {
-          this.list.push(this.list.length + 1);
-        }
-        // 加载状态结束
-        this.loading = false;
-
-        // 数据全部加载完成
-        if (this.list.length >=20) {
-          this.finished = true;
-        }
-      }, 500);
+  //   jumpComment(){
+  //    this.$router.push("/hitproduct")
+  // },
+  hitdetail(movieId){
+    this.$router.push("/hitproduct/"+movieId);
   }
-  },
-  props: [],
+   },
+  props: ["data-id"],
   created() {
     this.aa();
   },
-  onReachBottom() {
-    //加载下一页数据
-    this.aa();
-    //conso.log(123)
-  }
 };
 </script>
 <style scoped>

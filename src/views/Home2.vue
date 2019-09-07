@@ -70,7 +70,7 @@ export default {
   data() {
     return {
       //面板中显示子组件id
-      active: "home1"
+      active: this.$store.state.name || "home1"
       //创建数组保存图片焦点状态
     };
   },
@@ -107,6 +107,9 @@ export default {
 // );
 // }
 // },
+  },
+  mounted(){
+    
   },
   components: {
     headerss: Headerss,

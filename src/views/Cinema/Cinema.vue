@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="list-wrap list_item mb-line-b" v-for="(time,i) in items" :key="i">
+    <div class="list-wrap list_item mb-line-b" v-for="(time,i) in items" :key="i" @click="deta">
       <div class="title-block">
         <div class="title line-ellipsis">
           <span>{{time.title}}</span>
@@ -155,6 +155,9 @@ export default {
     },
     gzlist(){
       this.$router.push("/gz")
+    },
+    deta(){
+      this.$router.push("/details")
     }
   }
 };

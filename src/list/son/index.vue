@@ -5,7 +5,7 @@
       <div class="most-expected">
         <p class="title">近期最受期待</p>
         <div class="most-expected-list  container">
-          <div class="expected-item" v-for="(item,index) in lists" :key="item">
+          <div class="expected-item" v-for="(item,index) in lists" :key="item.id">
             <div class="poster img-bg">
               <img
                 :src="'https://images.weserv.nl/?url='+listImg[index]"

@@ -1,27 +1,6 @@
 <template>
   <div class="for">
     <footer>
-     <mt-tab-container v-model="active">
-       <!--子面板1 -->
-       <!-- <mt-tab-container-item id="Home1">
-          首页
-       </mt-tab-container-item> -->
-       <!--子面板2-->
-       <mt-tab-container-item id="Movie">
-
-       </mt-tab-container-item>
-       <!--子面板3-->
-       <mt-tab-container-item id="Theater">
-
-       </mt-tab-container-item>
-        <mt-tab-container-item>
-   
-       </mt-tab-container-item>
-        <mt-tab-container-item id="Mine">
-
-       </mt-tab-container-item>
-     </mt-tab-container>
-
     <!--底部导航条父元素-->
     <mt-tabbar v-model="active" fixed>
       <!--按钮-->
@@ -31,7 +10,7 @@
          <!--文字-->
          首页
        </mt-tab-item>
-       <mt-tab-item id="Movie">
+       <mt-tab-item id="Movie" >
          <!--图片:检查图片正确01.png-->
          <img  slot="icon" src="../../assets/05.png" />
          <!--文字-->
@@ -43,7 +22,7 @@
          <!--文字 55-->
          演出
        </mt-tab-item>
-        <mt-tab-item id="Cinema">
+        <mt-tab-item id="Cinema" >
          <!--图片:检查图片正确01.png-->
          <img  slot="icon" src="../../assets/08.png" />
          <!--文字 55-->
@@ -66,6 +45,23 @@
         //按钮保存id值
         active:"Home1"
       }
+    },
+    methods:{
+      // home(){
+      //   this.$router.push("/home")
+      // },
+      // cinema(){
+      //   this.$router.push("/cinema")
+      // },
+      // mine(){
+      //   this.$router.push("/mine")
+      // },
+      // theater(){
+      //   this.$router.push("/theater")
+      // },
+      // movie(){
+      //   this.$router.push("/movie")
+      // }
     }
   }
 </script>

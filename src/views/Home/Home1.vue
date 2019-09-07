@@ -7,7 +7,7 @@
         <van-tab title="推荐" name="a">
           <div style="padding:8px">
             <div class="Home_swipe">
-              <mt-swipe :auto="4000">
+              <mt-swipe :auto="4000" style="height:140px">
                 <mt-swipe-item>
                   <img src="@/assets/02.jpg" alt />
                 </mt-swipe-item>
@@ -96,6 +96,7 @@ div ul li {
 }
 .mint-swipe-item > img {
   border-radius: 10px;
+  height: 100%
 }
 /*二级的列表 */
 .home-list {

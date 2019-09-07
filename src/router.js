@@ -20,7 +20,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     { path: '/details', component: details },
-    { path: '/hitproduct', component: hitproduct },
+    { path: '/hitproduct/:movieId', component:hitproduct,props: true},
     { path: '/son', component: son },
     { path: '/hit', component: hit },
     { path: '/gz', component: gz },
