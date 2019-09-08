@@ -14,7 +14,12 @@ import hit from "./list/hit"
 import son from "./list/son"
 import hitproduct from "./list/hitproduct"
 import details from "./list/details"
-
+import HallSeat from '@/pages/hallseat/HallSeat'
+import SeatArea from '@/pages/hallseat/component/SeatArea'
+import PlanDetail from '@/pages/hallseat/component/PlanDetail'
+import SelectedTab from '@/pages/hallseat/component/SelectedTab'
+import QuickSelectTab from '@/pages/hallseat/component/QuickSelectTab'
+import ConfirmLock from '@/pages/hallseat/component/ConfirmLock'
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +38,14 @@ export default new Router({
     { path: '/Mine', component: Mine },
     { path: '/Headerss', component: Headerss },
     { path: '/Footerss', component: Footerss },
+    { path: '/HallSeat', component: HallSeat },
+
+    { path: '/SeatArea', component: SeatArea },
+    { path: '/PlanDetail', component: PlanDetail },
+    { path: '/SelectedTab', component: SelectedTab },
+    { path: '/QuickSelectTab', component: QuickSelectTab },
+    { path: '/ConfirmLock', component: ConfirmLock },
+
     {
       path: '/',
       name: 'Home2',

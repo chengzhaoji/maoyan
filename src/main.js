@@ -8,6 +8,11 @@ import "mint-ui/lib/style.css"
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import VueJsonp from 'vue-jsonp'
+import 'amfe-flexible'
+import './assets/stylus/reset.styl'
+import { post, get, patch, put } from './http'
+import Vconsole from 'vconsole'
+var VueTouch = require('vue-touch')
 Vue.use(VueJsonp)
 
 Vue.prototype.axios=axios
@@ -15,7 +20,16 @@ Vue.use(MintUI)
 Vue.use(Vant);
 
 Vue.config.productionTip = false
-
+if (process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line no-unused-vars
+  let vConsole = new Vconsole()
+}
+Vue.use(VueTouch, { name: 'v-touch' })
+// 定义全局变量
+Vue.prototype.$post = post
+Vue.prototype.$get = get
+Vue.prototype.$patch = patch
+Vue.prototype.$put = put
 
 new Vue({
   router,
