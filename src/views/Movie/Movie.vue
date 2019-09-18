@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Headerss title="电影模板" />
+    <Headerss title="电影" />
     <div style="margin-top:48px;height:748px;">
       <div style="height:51px">
       <div class="gray-bg topbar-bg movies">
@@ -13,7 +13,8 @@
           <div class="hot-item" v-bind:class="see==false?'active':''" @click="son">即将上映</div>
           <!-- <son/> -->
         </div>
-        <div class="search-entry search-icon"></div>
+        <div class="search-entry search-icon" @click="add"></div>
+        
       </div>
       </div>
     <hit v-if="on"/>

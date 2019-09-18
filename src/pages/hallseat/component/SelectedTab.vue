@@ -105,13 +105,13 @@ export default {
       margin-top 0.8rem
       .scroll-item
         flex: none;
-        margin-left 20px
-        height 65px
-        line-height 65px
+        margin-left 0.266667rem
+        height 0.866667rem
+        line-height 0.86667rem
         text-align center
-        font-size 23px
-        width 160px
+        font-size 0.306667rem
+        width 2.13334rem
         color #888888
-        border 2px solid #888888
-        border-radius 10px
+        border 0.026667rem solid #888
+        border-radius 0.133333rem
 </style>

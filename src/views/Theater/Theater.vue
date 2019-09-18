@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Headerss title="演出模板" />
+    <Headerss title="演出" />
     <div class="container">
       <div class="thear-content">
         <ul>
@@ -24,7 +24,7 @@
                   <!-- -->
                   {{items.site}}
                 </p>
-                <p style="color:#f00;font-size:16px">
+                <p class="price">
                   {{items.price}}
                   <!-- -->
                   元
@@ -36,40 +36,52 @@
         </ul>
       </div>
       <div class="rowlist rowlist footer">
-        <p
-          class="rowlist rowlist"
-        >商务合作邮箱：v@maoyan.com <br>
-        客服电话：10105335 <br>违法和不良信息举报电话：4006018900</p><br>
-        <p
-          class="rowlist rowlist"
-        ><br>用户投诉邮箱：tousujubao@meituan.com <br>舞弊线索举报邮箱：wubijubao@maoyan.com</p><br>
         <p class="rowlist rowlist">
-         <br><a
+          商务合作邮箱：v@maoyan.com
+          <br />客服电话：10105335
+          <br />违法和不良信息举报电话：4006018900
+        </p>
+        <br />
+        <p class="rowlist rowlist">
+          <br />用户投诉邮箱：tousujubao@meituan.com
+          <br />舞弊线索举报邮箱：wubijubao@maoyan.com
+        </p>
+        <br />
+        <p class="rowlist rowlist">
+          <br />
+          <a
             href="/permissionTwo"
             target="_blank"
             class="rowlist rowlist"
-          >营业性演出许可证 京演（机构）（2019）4094号</a><br>
-        </p><br>
-        <br><p class="rowlist rowlist">
+          >营业性演出许可证 京演（机构）（2019）4094号</a>
+          <br />
+        </p>
+        <br />
+        <br />
+        <p class="rowlist rowlist">
           <a
             href="/permissionThree"
             target="_blank"
             class="rowlist rowlist"
-          >广播电视节目制作经营许可证（京）字第08478号</a> |<br>
+          >广播电视节目制作经营许可证（京）字第08478号</a> |
+          <br />
           <a
             href="/permissionFour"
             target="_blank"
             class="rowlist rowlist"
           >网络文化经营许可证 京网文（2019）3837-369号</a>
-        </p><br>
+        </p>
+        <br />
         <p class="rowlist rowlist">
           <a
             href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010102003232"
             target="_blank"
             class="rowlist rowlist"
-          >京公网安备 11010102003232号</a> |<br>
+          >京公网安备 11010102003232号</a> |
+          <br />
           <a href="/announce" target="_blank" class="rowlist rowlist">电子公告服务规则</a>
-        </p><br>
+        </p>
+        <br />
         <p class="rowlist rowlist">北京猫眼文化传媒有限公司</p>
         <p class="rowlist rowlist">©2016 猫眼娱乐 maoyan.com</p>
         <div class="rowlist rowlist logo">
@@ -78,20 +90,14 @@
             target="_blank"
             class="rowlist rowlist"
           >
-            <img
-              src="@/assets/e54374ccf134d1f7b2c5b075a74fca525326.png"
-              class="rowlist rowlist"
-            />
+            <img src="@/assets/e54374ccf134d1f7b2c5b075a74fca525326.png" class="rowlist rowlist" />
           </a>
           <a
             href="https://img.meituan.net/kylisean/5672d181ff6bf3258e1e2275573f11952211373.png"
             target="_blank"
             class="rowlist rowlist"
           >
-            <img
-              src="@/assets/805f605d5cf1b1a02a4e3a5e29df003b8376.png"
-              class="rowlist rowlist"
-            />
+            <img src="@/assets/805f605d5cf1b1a02a4e3a5e29df003b8376.png" class="rowlist rowlist" />
           </a>
         </div>
       </div>
@@ -129,8 +135,27 @@ export default {
           site: "浅水湾文化艺术中心",
           price: "280"
         },
-        {image:require("@/assets/8c2bf9ff7c4c57da3b5cb7defcddc744108390.jpg"),title:"2019费玉清告别巡演内地最终场-上海站",time:"2019.10.26 / 10.27",site:"东方体育中心",price:"280-1580"},
-        {image:require("@/assets/498e106c0ce76cc5feaa4e490071f978700661.png"),title:"汪苏泷2019“银河漫游”巡回演唱会上海站-生日特别场",time:"2019.9.14 19:30 周六",site:"国家会展中心（上海）虹馆EH",price:"380-1280"}
+        {
+          image: require("@/assets/8c2bf9ff7c4c57da3b5cb7defcddc744108390.jpg"),
+          title: "2019费玉清告别巡演内地最终场-上海站",
+          time: "2019.10.26 / 10.27",
+          site: "东方体育中心",
+          price: "280-1580"
+        },
+        {
+          image: require("@/assets/498e106c0ce76cc5feaa4e490071f978700661.png"),
+          title: "汪苏泷2019“银河漫游”巡回演唱会上海站-生日特别场",
+          time: "2019.9.14 19:30 周六",
+          site: "国家会展中心（上海）虹馆EH",
+          price: "380-1280"
+        },
+        {
+          image: require("@/assets/9f2c4012e66dd2e290d9804dca9d24561993930.jpg"),
+          title: "2019柏木由纪演唱会·上海站",
+          time: "2019.11.9 19:30 周六",
+          site: "上海世博会议中心-红厅",
+          price: "680-1680"
+        }
         // {image:require("@/assets/"),title:"",time:"",site:"",price:""},
       ]
     };
@@ -153,13 +178,17 @@ export default {
   box-sizing: inherit;
 }
 .thear-content {
-  margin: 20px auto;
+  margin: 55px auto;
   border: 1px solid #e8e8e8;
   background: #fff;
   padding: 5px 10px;
 }
 ul {
   list-style: none;
+}
+ul > li {
+  padding-bottom: 19px;
+  padding-top: 19px;
 }
 ul > .list-item :first-child {
   padding-top: 0;
@@ -178,7 +207,7 @@ ul > .list-item :first-child {
 /* 图标上 */
 .contain {
   position: absolute;
-  top: 10px;
+  top: -10px;
   left: 5px;
   background: #5bbfff;
   width: 25px;
@@ -205,6 +234,7 @@ ul > .list-item :first-child {
 .thear-title {
   font-size: 16px;
   color: #222;
+  padding-bottom: 25px;
 }
 /* 图标上文字的位置大小 */
 .theae-ps {
@@ -223,6 +253,12 @@ ul > .list-item :first-child {
   color: #666;
   text-align: left;
 }
+/* 价格 */
+.price {
+  color: #f00;
+  font-size: 16px;
+  padding-top: 15px;
+}
 /* 购票按钮 */
 .thear-btn {
   background: #ef4238;
@@ -236,37 +272,39 @@ ul > .list-item :first-child {
   position: absolute;
   right: 0;
 }
-ul>li{padding-bottom: 5px}
+ul > li {
+  padding-bottom: 5px;
+}
 /* 尾部部分 */
 footer.rowlist {
-    width: 100%;
-    background: #3e3e3e;
-    padding: 56px 0;
+  width: 100%;
+  background: #3e3e3e;
+  padding: 56px 0;
 }
 .footer.rowlist p.rowlist {
-    text-align: center;
-    font-size: 14px;
-    color: #a8a8a8;
-    line-height: 22px;
-    height: 22px;
-    margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  color: #a8a8a8;
+  line-height: 22px;
+  height: 22px;
+  margin: 0 auto;
 }
 /* 两个跳转网页样式 */
 .footer.rowlist .logo.rowlist {
-    margin-top: 20px;
-    display: flex;
-    margin-top: 20px;
-    justify-content: center;
+  margin-top: 20px;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
 }
- .logo.rowlist a.rowlist {
-    padding-right: 12px;
+.logo.rowlist a.rowlist {
+  padding-right: 12px;
 }
- p.rowlist a.rowlist {
-    text-decoration: none;
-    color: inherit;
+p.rowlist a.rowlist {
+  text-decoration: none;
+  color: inherit;
 }
- .logo.rowlist a.rowlist img{
-    width:106px;
-    height: 40px;
- }
+.logo.rowlist a.rowlist img {
+  width: 106px;
+  height: 40px;
+}
 </style>

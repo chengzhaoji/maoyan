@@ -27,7 +27,7 @@
               <swiper-slide v-for="(item,index) in list" :key="index">
                 <img :src="'https://images.weserv.nl/?url='+listImg[index]" />
               </swiper-slide>
-              <div class="swiper-pagination" slot="pagination"></div>
+              <!-- <div class="swiper-pagination" slot="pagination"></div> -->
             </swiper>
             <div class="movie-info">
               <div class="movie-title line-ellipsis">
@@ -62,7 +62,7 @@
               <div class="seat-inner-wrap">
                 <div class="seat-list">
                   <div class="list-wrap">
-                    <div class="item-outer mb-line-b" data-bid="dp_wx_cinema_show_item">
+                    <div class="item-outer mb-line-b" data-bid="dp_wx_cinema_show_item" @click="seat">
                       <div class="item box-flex">
                         <div class="time-block">
                           <div class="begin">19:20</div>
@@ -216,8 +216,8 @@ export default {
     return {
       listImg: [],
       list: "",
-      count: 10,
-      start: 0,
+      count: 40,
+      start: 13,
       active: "",
       swiperOption: {
         slidesPerView: 4,
@@ -235,9 +235,9 @@ export default {
       this.$store.commit("changecinema");
     },
     bb() {
-      var url = `http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=${this.list.length}&count=${this.count}`;
+      var url = `http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=${this.start}&count=${this.count}`;
       this.$jsonp(url).then(res => {
-        console.log(res.subjects);
+        // console.log(res.subjects);
         for (var i = 0; i < res.subjects.length; i++) {
           let imgUrl = res.subjects[i].images.small;
           let imgUrls = imgUrl.slice(7);
@@ -247,7 +247,11 @@ export default {
         }
         // console.log('我是:',this.listImg);
         this.list = res.subjects;
-      });
+        // console.log(this.list)
+      })
+    },
+    seat(){
+      this.$router.push("/HallSeat")
     }
   },
   components: {
@@ -423,7 +427,7 @@ export default {
 /* 返回键 */
 .back-content {
   position: relative;
-  top: -33px;
+  top: -40px;
   left: 10px;
   z-index: 999;
   width: 35px;

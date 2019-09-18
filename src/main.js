@@ -2,28 +2,28 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from "axios"
-import MintUI from "mint-ui"
-import "mint-ui/lib/style.css"
-import Vant from 'vant';
-import 'vant/lib/index.css';
+import axios from 'axios'
+import MintUI from 'mint-ui'
+import Vant from 'vant'
 import VueJsonp from 'vue-jsonp'
-import 'amfe-flexible'
-import './assets/stylus/reset.styl'
 import { post, get, patch, put } from './http'
-import Vconsole from 'vconsole'
+// import Vconsole from 'vconsole'
+import 'mint-ui/lib/style.css'
+import 'vant/lib/index.css'
+import './assets/stylus/reset.styl'
+import 'amfe-flexible'
 var VueTouch = require('vue-touch')
 Vue.use(VueJsonp)
 
-Vue.prototype.axios=axios
+Vue.prototype.axios = axios
 Vue.use(MintUI)
-Vue.use(Vant);
+Vue.use(Vant)
 
 Vue.config.productionTip = false
-if (process.env.NODE_ENV === 'development') {
-  // eslint-disable-next-line no-unused-vars
-  let vConsole = new Vconsole()
-}
+// if (process.env.NODE_ENV === 'development') {
+//   // eslint-disable-next-line no-unused-vars
+//   let vConsole = new Vconsole()
+// }
 Vue.use(VueTouch, { name: 'v-touch' })
 // 定义全局变量
 Vue.prototype.$post = post

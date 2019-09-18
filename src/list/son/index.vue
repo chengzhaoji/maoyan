@@ -1,10 +1,9 @@
 <template>
   <div class="page">
-    
     <div class="list-wrap" style="margin-top: 0px;">
       <div class="most-expected">
-        <p class="title">近期最受期待</p>
-        <div class="most-expected-list  container">
+        <p class="title" style="margin-bottom:5px">近期最受期待</p>
+        <div class="most-expected-list container">
           <div class="expected-item" v-for="(item,index) in lists" :key="item.id">
             <div class="poster img-bg">
               <img
@@ -19,7 +18,7 @@
                 <span class="like"></span>
               </div>
             </div>
-            <h5 class="name line-ellipsis">{{item.title}}</h5>
+            <h5 class="names line-ellipsis">{{item.title}}</h5>
             <p class="date">9月30日</p>
           </div>
         </div>
@@ -40,23 +39,22 @@
             </div>
             <div class="mb-line-b">
               <div class="movie-content">
-                
                 <div class="detail">
                   <div class="flex movie-title">
-                  <div class="line-ellipsis title">{{item.title}}</div>
-                </div>
+                    <div class="line-ellipsis title">{{item.title}}</div>
+                  </div>
                   <div class="wantsee line-ellipsis">
                     <span class="person">43613</span>
                     <span class="p-suffix">人想看</span>
                   </div>
-                  <div class="actor line-ellipsis">主演: {{item.casts[0].name}},{{item.casts[1].name}}</div>
+                  <div class="actor line-ellipsis">主演:{{item.casts[0].name}},{{item.casts[1].name}}</div>
                   <div class="actor line-ellipsis">{{item.mainland_pubdate}}上映</div>
                 </div>
-                 <div class="button-block">
-              <div class="btn pre">
-                <span class="fix">预售</span>
-              </div>
-            </div>
+                <div class="button-block">
+                  <div class="btn pre">
+                    <span class="fix">预售</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -70,16 +68,14 @@
 export default {
   data() {
     return {
-      // start:20,
-      count:6,
-      lists:"",
-      listImg:[],
+      lists: "",
+      listImg: []
     };
   },
-  methods:{
-      add() {
+  methods: {
+    add() {
       var url =
-        "http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=${this.subjects.length,}&count=${this.count}";
+        "http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=20&count=10";
       this.$jsonp(url).then(res => {
         // console.log(res)
         for (var i = 0; i < res.subjects.length; i++) {
@@ -90,13 +86,13 @@ export default {
         }
         // console.log('我是:',this.listImg);
         this.lists = res.subjects;
-      })
+      });
+    }
+  },
+  created() {
+    this.add();
   }
-},
-created(){
-  this.add();
-}
-}
+};
 </script>
 <style scoped>
 /* 图片的公共样式 */
@@ -130,7 +126,9 @@ img {
   /* margin-bottom: 12px; */
 }
 /* 去滚动条 */
-.container::-webkit-scrollbar {display:none}
+.container::-webkit-scrollbar {
+  display: none;
+}
 /* 预期列表介绍的内容 */
 .most-expected-list {
   overflow: scroll; /*卷轴方式的移动*/
@@ -140,7 +138,7 @@ img {
 .list-wrap .expected-item {
   display: inline-block;
   overflow: hidden;
-      width: 85px;
+  width: 85px;
   margin-right: 10px; /*每个列表框之间的距离*/
 }
 /* 图片的大小 */
@@ -186,7 +184,7 @@ img {
   border-bottom-right-radius: 13px;
   position: absolute;
   top: 0px;
-  line-height:28px;
+  line-height: 28px;
 }
 .toggle-wish span {
   display: inline-block;
@@ -198,7 +196,7 @@ img {
 .toggle-wish .like {
   background-image: url(../../assets/link.png);
 }
-.name {
+.names {
   margin: 0;
   font-size: 13px;
   color: #222;
@@ -253,8 +251,8 @@ img {
   margin-bottom: 7px;
   line-height: 24px;
   overflow: hidden;
-  font-weight:700;
-  color: #333
+  font-weight: 700;
+  color: #333;
 }
 /* 图片的大小 */
 .avatar {
@@ -290,12 +288,12 @@ img {
   color: #666;
 }
 /* 各行之间的间距 */
-.movie-content>.detail >div+div {
+.movie-content > .detail > div + div {
   margin-top: 6px;
   line-height: 15px;
 }
 /* 右边按钮的位置调整 */
- .button-block {
+.button-block {
   font-size: 12px;
   position: absolute;
   right: 14px;
@@ -333,7 +331,7 @@ img {
 } */
 /* 预售 */
 .btn.pre {
-    background-color: #3c9fe6 !important;
+  background-color: #3c9fe6 !important;
 }
 /* .hidden{display: none}
 .show{display: block} */

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Headerss title="我的模板" />
+    <Headerss title="我的" />
     <div style="margin-top:48px;"></div>
     <!-- <h1>电影</h1> -->
     <mt-navbar v-model="selected">
@@ -217,6 +217,7 @@ a {
     margin: 0;
     margin-bottom: -1px;
     border: 0;
+    font-size: 16px;
 }
 
 /* 手机框 */

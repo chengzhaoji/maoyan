@@ -77,7 +77,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "猫眼影院"
+      default: "星际影院"
     }
   },
 //   mounted: function() {

@@ -7,6 +7,9 @@
   <div class="wapper">
     <!--头部 开始-->
     <header-view :titleText="movieName" @backHandleClick="back"></header-view>
+     <div class="back-content">
+        <div class="back" @click="backs"></div>
+      </div>
     <!--头部 结束-->
     <!--排期详情和座位上方示例图 开始-->
     <plan-detail :propHallName="hallName" :propShowDate="showDate" :propShowTime="showTime">
@@ -287,6 +290,9 @@ export default {
     back: function () {
       this.$router.go(-1)
     },
+     backs() {
+      this.$router.back();
+    },
     loading: function (value) {
       this.load = value
     },
@@ -421,4 +427,17 @@ export default {
           left 0
           top 0
           height 100%
+    .back-content {
+        position: relative;
+        top: -40px;
+        left: 10px;
+        z-index: 999;
+        width: 35px;
+      }
+      /* 返回键的大小 */
+    .back {
+        background: url("../../assets/back.png") no-repeat;
+        width: 35px;
+        height: 32px;
+      }
 </style>

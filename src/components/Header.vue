@@ -29,8 +29,8 @@ export default {
 <style scoped="scoped">
 	#header{
 		display: flex;
-		background: linear-gradient(to right, #6F50F5,#C26DFE);
-		height: 1.08rem;
+		background: linear-gradient(to right, #e93d4a,#e54847);
+		height: 1.3334rem;
 		width: 100%;
 		color: white;
 	}
@@ -38,7 +38,7 @@ export default {
 		width: 1.86666rem;
 		height: 100%;
 		text-align: center;
-		line-height: 1.08rem;
+		line-height: 1.3334rem;
 		font-size: 0.33333rem;
 	}
 	.backImage{

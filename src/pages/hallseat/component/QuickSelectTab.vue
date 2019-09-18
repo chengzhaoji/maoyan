@@ -493,5 +493,4 @@ export default {
         color #888
         border 0.026667rem solid #888
         border-radius 0.133333rem
-        
 </style>

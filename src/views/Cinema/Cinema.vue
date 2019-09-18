@@ -1,6 +1,6 @@
 <template>
   <div id="Cinema">
-    <Headerss title="影院模板" />
+    <Headerss title="影院" />
     <div style="margin-top:48px;"></div>
     <div class="gray-bg topbar-bg">
       <div class="city-entry">
@@ -14,11 +14,7 @@
     </div>
     <div class="tow-list">
       <div class="tab mb-line-b">
-        <div
-          class="item"
-          @click="addClass"
-          v-bind:class="current==true?'region':''"
-        >
+        <div class="item" @click="addClass" v-bind:class="current==true?'region':''">
           全城
           <span class="drop"></span>
         </div>
@@ -96,9 +92,9 @@ export default {
           snack: "小吃",
           card: "折扣卡",
           sound: "改签,退款",
-          car: "",
+          car: ""
         },
-         {
+        {
           title: "广东工人电影院",
           price: 23,
           product: "越秀区南堤二马路36号",
@@ -113,7 +109,7 @@ export default {
           price: 20,
           product: "越秀区北京路168号粤海仰忠汇8层",
           dist: "800m",
-          snack:'',
+          snack: "",
           card: "小吃",
           sound: "折扣卡",
           car: "开卡特惠，首单2张最高立减4元"
@@ -123,7 +119,7 @@ export default {
           price: 28,
           product: "越秀区北京路186号3楼（潮楼对面）",
           dist: "800m",
-          snack:'',
+          snack: "",
           card: "小吃",
           sound: "折扣卡",
           car: ""
@@ -133,7 +129,7 @@ export default {
           price: 28,
           product: "越秀区北京路186号3楼（潮楼对面）",
           dist: "800m",
-          snack:'',
+          snack: "",
           card: "小吃",
           sound: "折扣卡",
           car: ""
@@ -153,11 +149,11 @@ export default {
     addClass() {
       this.current = true;
     },
-    gzlist(){
-      this.$router.push("/gz")
+    gzlist() {
+      this.$router.push("/gz");
     },
-    deta(){
-      this.$router.push("/details")
+    deta() {
+      this.$router.push("/details");
     }
   }
 };
@@ -313,7 +309,7 @@ export default {
   height: 15px;
   line-height: 15px;
   border-radius: 2px;
-  font-size: 0.6rem;
+  font-size: 12px;
 }
 .label-block div.snack {
   color: #f90;
@@ -360,12 +356,12 @@ img {
   position: relative;
   top: -2px;
 }
-.hidden{
-  display:none !important;
-  color:transparent !important;
-    border:0 !important;
+.hidden {
+  display: none !important;
+  color: transparent !important;
+  border: 0 !important;
 }
-.show{
-  display:block;
+.show {
+  display: block;
 }
 </style>

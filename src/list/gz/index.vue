@@ -3,6 +3,7 @@
     <!-- <div class="city-list city-list-inline clearfix">
       <div class="location-city">定位失败，请点击重试</div>
     </div> -->
+    <div class="container">
     <div index="热门城市" class="city-title">热门城市</div>
     <div class="city-list city-list-inline clearfix">
       <div class="city-item" title="上海" data-id="10">上海</div>
@@ -66,6 +67,7 @@
         <mt-cell title="Zane"></mt-cell>
       </mt-index-section>
     </mt-index-list>
+    </div>
   </div>
 </template>
 <script>
@@ -83,7 +85,18 @@ div {
   padding-left: 15px;
   line-height: 30px;
 }
-
+.container{
+    background-color: #ebebeb;
+    font-size: 14px;
+    color: #333;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    overflow-y: auto;
+}
 .city-item,.city-list-inline .location-city {
   float: left;
   background: #fff;

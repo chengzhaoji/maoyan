@@ -90,9 +90,9 @@ export default {
         // console.log(res);
         this.detailImg=res.images.large;
         this.detail=res
-        console.log(this.detail);
+        // console.log(this.detail);
       });
-          console.log(this.movieId)
+          // console.log(this.movieId)
     }
   },
   props:["movieId"],

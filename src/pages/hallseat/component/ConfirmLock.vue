@@ -201,7 +201,7 @@ export default {
   bottom 0
   z-index 10
   width 10rem
-  background linear-gradient(to right, #6f50f5, #c26dfe)
+  background linear-gradient(to right, #ffddb2, #e7c3c4)
   line-height 1.2rem
   text-align center
   color #fff

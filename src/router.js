@@ -15,11 +15,6 @@ import son from "./list/son"
 import hitproduct from "./list/hitproduct"
 import details from "./list/details"
 import HallSeat from '@/pages/hallseat/HallSeat'
-import SeatArea from '@/pages/hallseat/component/SeatArea'
-import PlanDetail from '@/pages/hallseat/component/PlanDetail'
-import SelectedTab from '@/pages/hallseat/component/SelectedTab'
-import QuickSelectTab from '@/pages/hallseat/component/QuickSelectTab'
-import ConfirmLock from '@/pages/hallseat/component/ConfirmLock'
 Vue.use(Router)
 
 export default new Router({
@@ -39,13 +34,6 @@ export default new Router({
     { path: '/Headerss', component: Headerss },
     { path: '/Footerss', component: Footerss },
     { path: '/HallSeat', component: HallSeat },
-
-    { path: '/SeatArea', component: SeatArea },
-    { path: '/PlanDetail', component: PlanDetail },
-    { path: '/SelectedTab', component: SelectedTab },
-    { path: '/QuickSelectTab', component: QuickSelectTab },
-    { path: '/ConfirmLock', component: ConfirmLock },
-
     {
       path: '/',
       name: 'Home2',
@@ -57,7 +45,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      // component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     }
   ]
 })

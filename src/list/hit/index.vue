@@ -64,7 +64,6 @@ export default {
   data() {
     return {
       rating:[],
-      count:30,
       list: "",
       listImg: [],
       value:6,
@@ -74,10 +73,9 @@ export default {
   },
   methods: {
     aa() {
-      var url =
-        `http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=${this.list.length}&count=${this.count}`;
+      var url ="http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=0&count=10";
       this.$jsonp(url).then(res => {
-        console.log(res.subjects);
+        // console.log(res.subjects);
         for (var i = 0; i < res.subjects.length; i++) {
           let imgUrl = res.subjects[i].images.small;
           let imgUrls = imgUrl.slice(7);
@@ -95,7 +93,7 @@ export default {
   //    this.$router.push("/hitproduct")
   // },
   hitdetail(movieId){
-    this.$router.push("/hitproduct/"+movieId);
+    this.$router.push("/hitproduct/"+movieId)
   }
    },
   props: ["data-id"],
